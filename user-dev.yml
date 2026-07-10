@@ -1,4 +1,4 @@
 spring:
   mongodb:
-    uri= mongodb://localhost:27017/ecom_user
-    database=userdb
+    uri: mongodb://localhost:27017/ecom_user
+    database: userdb
