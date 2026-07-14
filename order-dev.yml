@@ -4,6 +4,12 @@ spring:
     url: jdbc:postgresql://localhost:5432/order
     username: shilpi
     password: shilpi
+
+  rabbitmq:
+        host: rabbitmq
+        port: 5672
+        username: guest
+        password: guest  
   jpa:
     properties:
       hibernate:
