@@ -3,13 +3,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/order
     username: shilpi
-    password: shilpi
-
-  rabbitmq:
-        host: rabbitmq
-        port: 5672
-        username: guest
-        password: guest  
+    password: shilpi  
   jpa:
     properties:
       hibernate:
