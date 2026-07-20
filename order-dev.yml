@@ -25,5 +25,15 @@ logging:
   logback:
     rollingpolicy:
       max-file-size: 5MB
-      max-history: 7    
+      max-history: 7
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+      
     
