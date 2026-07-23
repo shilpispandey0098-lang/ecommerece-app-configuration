@@ -31,15 +31,18 @@ spring:
 server:
   port: 8080
 
-
 management:
-  endpoint:
-    gateway:
-      access: unrestricted
   endpoints:
     web:
       exposure:
-        include: gateway, health
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
   tracing:
     sampling:
       probability: 1.0
+
