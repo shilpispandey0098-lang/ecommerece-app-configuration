@@ -62,7 +62,10 @@ resilience4j:
     instances:
       productService:
         ignore-exceptions:
-          - com.ecommerce.order.exceptionHandling
+          - com.ecommerce.order.exceptionHandling.UserNotFoundException
+          - com.ecommerce.order.exceptionHandling.ProductNotFoundException
+          - com.ecommerce.order.exceptionHandling.ServiceUnavailableException
+          - com.ecommerce.order.exceptionHandling.InsufficientQuantityException
 
         registerHealthIndicator: true
         slidingWindowSize: 10
