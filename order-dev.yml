@@ -61,6 +61,11 @@ resilience4j:
   circuitbreaker:
     instances:
       productService:
+        ignore-exceptions:
+          - com.ecommerce.order.UserNotFoundException
+          - com.ecommerce.order.ProductNotFoundException
+          - com.ecommerce.order.InsufficientQuantityException
+          - com.ecommerce.order.exceptionHandling
         registerHealthIndicator: true
         slidingWindowSize: 10
         minimumNumberOfCalls: 5
