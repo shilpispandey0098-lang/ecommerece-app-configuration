@@ -79,6 +79,7 @@ resilience4j:
         slidingWindowType: count_based
       
     retry: 
-      retryBreakar:  
-          maxAttempts: 5
-          waitDuration: 500 ms
+      instances:
+        retryBreakar:  
+            maxAttempts: 5
+            waitDuration: 500ms
