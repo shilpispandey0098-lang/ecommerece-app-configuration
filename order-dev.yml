@@ -56,7 +56,6 @@ management:
     sampling:
       probability: 1.0
       
-#Circuit Brekae
 resilience4j:
   circuitbreaker:
     instances:
@@ -67,8 +66,6 @@ resilience4j:
           - com.ecommerce.order.exceptionHandling.ProductNotFoundException
           - com.ecommerce.order.exceptionHandling.ServiceUnavailableException
           - com.ecommerce.order.exceptionHandling.UserNotFoundException
-
-
         registerHealthIndicator: true
         slidingWindowSize: 10
         minimumNumberOfCalls: 5
@@ -77,15 +74,16 @@ resilience4j:
         failureRateThreshold: 50
         automaticTransitionFromOpenToHalfOpenEnabled: true
         slidingWindowType: count_based
-      
-    retry: 
-      instances:
-        retryBreakar:
-            ignore-exceptions:
-              - com.ecommerce.order.exceptionHandling.CartException
-              - com.ecommerce.order.exceptionHandling.InsufficientQuantityException
-              - com.ecommerce.order.exceptionHandling.ProductNotFoundException
-              - com.ecommerce.order.exceptionHandling.ServiceUnavailableException
-              - com.ecommerce.order.exceptionHandling.UserNotFoundException
-            maxAttempts: 5
-            waitDuration: 500ms
+
+  retry:
+    instances:
+      productServiceRetry:
+        maxAttempts: 4
+        waitDuration: 1s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        ignore-exceptions:
+          - com.ecommerce.order.exceptionHandling.CartException
+          - com.ecommerce.order.exceptionHandling.InsufficientQuantityException
+          - com.ecommerce.order.exceptionHandling.ProductNotFoundException
+          - com.ecommerce.order.exceptionHandling.UserNotFoundException
